@@ -23,6 +23,10 @@ public class CensusAnalyzer
 			int numOfEntries = (int) StreamSupport.stream(csvIterable.spliterator(), false).count();
 			return numOfEntries;
 		} 
+		catch(IOException e) {
+			throw new CensusAnalyzerException(e.getMessage(),
+					                         CensusAnalyzerException.ExceptionType.CSV_FILE_PROBLEM);
+		}
 	}
 }
 
