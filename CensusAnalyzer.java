@@ -27,6 +27,10 @@ public class CensusAnalyzer
 			throw new CensusAnalyzerException(e.getMessage(),
 					                         CensusAnalyzerException.ExceptionType.CSV_FILE_PROBLEM);
 		}
+		catch(IllegalStateException e) {
+			throw new CensusAnalyzerException(e.getMessage(),
+                    							CensusAnalyzerException.ExceptionType.UNABLE_TO_PARSE);
+		}
 	}
 }
 
