@@ -10,8 +10,8 @@ import java.util.stream.StreamSupport;
 import com.opencsv.bean.CsvToBean;
 import com.opencsv.bean.CsvToBeanBuilder;
 
-public class CensusAnalyzer {
-	
+public class CensusAnalyzer 
+{
 	public int loadIndiaCensusData(String csvFilePath) throws IOException {
 		try(Reader reader = Files.newBufferedReader(Paths.get(csvFilePath));)  {
 			CsvToBeanBuilder<IndiaCensusCSV> csvToBeanBuilder = new CsvToBeanBuilder<>(reader);
@@ -24,5 +24,5 @@ public class CensusAnalyzer {
 			return numOfEntries;
 		} 
 	}
-
 }
+
