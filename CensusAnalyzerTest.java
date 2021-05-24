@@ -7,11 +7,11 @@ import org.junit.rules.ExpectedException;
 
 public class CensusAnalyzerTest 
 {
-	private final String INDIAN_CENSUS_CSV_FILE_PATH = "./IndiaCensus.csv";
+	private final String INDIAN_CENSUS_CSV_FILE_PATH = "C:\\Users\\Ankita\\eclipse-workspace\\IndainStateCensusAnalyser\\src\\data\\IndiaCensus.csv";
 	private static final String WRONG_CENSUS_CSV_FILE_PATH = "IndiaCensus.csv";
 	private static final String WRONG_CENSUS_FILE_TYPE_PATH = "./IndiaCensus.pdf";
 	
-	private final String INDIAN_STATE_CODE_CSV_FILE_PATH = "./IndiaCensus.csv";
+	private final String INDIAN_STATE_CODE_CSV_FILE_PATH = "C:\\Users\\Ankita\\eclipse-workspace\\IndainStateCensusAnalyser\\src\\data\\StateCode.csv";
 	
 	//Indian Census analyzer tests
 	@Test
@@ -55,5 +55,16 @@ public class CensusAnalyzerTest
 		} catch(CensusAnalyzerException e) {
 			Assert.assertEquals(CensusAnalyzerException.ExceptionType.UNABLE_TO_PARSE, e.type);
 		}
-	}	
+	}
+	
+	
+	//State codes analyzer tests
+		@Test
+		public void givenStateCodeCSVFileReturnsCorrectNumOfRecords() throws IOException, CensusAnalyzerException {
+			CensusAnalyzer statecodeAnalyZer = new CensusAnalyzer();
+			int numOfRecords = statecodeAnalyZer.loadDataFromCSVFile(INDIAN_STATE_CODE_CSV_FILE_PATH);
+			Assert.assertEquals(1, numOfRecords);
+		}
+		
 }
+ 
